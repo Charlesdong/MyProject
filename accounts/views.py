@@ -2,6 +2,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from django.core.urlresolvers import reverse
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.template import loader
@@ -29,6 +30,13 @@ class LoginView(FormView):
         else:
             context = self.get_context_data(form=form)
             return self.render_to_response(context)
+
+
+class LogoutView(RedirectView):
+
+    def get(self, request, *args, **kwargs):
+        logout(request)
+        return HttpResponseRedirect(reverse('index'))
 
 
 def send_html_mail(subject, params, to_email):
@@ -63,22 +71,12 @@ class RegisterView(CreateView):
         user = User.objects.create_user(username, email, password)
         user.is_active = False
         user.save()
-        #subject = 'welcome to Jesus Home'
-        #send_html_mail(subject, )
         return HttpResponseRedirect(self.get_success_url())
 
     def form_invalid(self, form):
         context = self.get_context_data(form=form)
         context['error_msg'] = self.error_msg
         return self.render_to_response(context)
-
-
-class LogoutView(RedirectView):
-
-    url = '/'
-
-    def get(self, request, *args, **kwargs):
-        logout(request)
 
 
 class ResetpasswordView(RedirectView):

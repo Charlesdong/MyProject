@@ -60,7 +60,7 @@
                     <p><input class="subscribe" name="login" type="submit" value="submit" /></p>
                   </form>
               {% else %}
-                   <a href=""><h3>admin</h3></a>
+                   <a href=""><h3>admin</h3>&nbsp;&nbsp;<a href="{% url "logout" %}"><h5>logout</h5><a></a>
               {% endif %}
             </div>
           </div>
