@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>守望者</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0 user-scalable=yes" />
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" />
+  {% block css %}{% endblock %}
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <h1>守望者</h1>
+        <div class="slogan">Jesus loves you !</div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
+          <li class="current"><a href="{% url "index" %}">Home</a></li>
+          <li><a href="examples.html">Examples</a></li>
+          <li><a href="page.html">A Page</a></li>
+          <li><a href="another_page.html">Another Page</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+        <div id="sidebar_container">
+            <img class="paperclip" src="{{ STATIC_URL }}images/paperclip.png" alt="paperclip" />
+            <div class="sidebar">
+            <!-- insert your sidebar items here -->
+            <h3>Latest News</h3>
+            <h4>What's the News?</h4>
+            <h5>1st July 2011</h5>
+            <p>Put your latest news item here, or anything else you would like in the sidebar!<br /><a href="#">Read more</a></p>
+            </div>
+            <img class="paperclip" src="{{ STATIC_URL }}images/paperclip.png" alt="paperclip" />
+            <div class="sidebar">
+              <h3>Newsletter</h3>
+              <p>If you would like to receive our newletter, please enter your email address and click 'Subscribe'.</p>
+              <form method="post" action="#" id="subscribe">
+                <p style="padding: 0 0 9px 0;"><input class="search" type="text" name="email_address" value="your email address" onclick="javascript: document.forms['subscribe'].email_address.value=''" /></p>
+                <p><input class="subscribe" name="subscribe" type="submit" value="Subscribe" /></p>
+              </form>
+            </div>
+            <img class="paperclip" src="{{ STATIC_URL }}images/paperclip.png" alt="paperclip" />
+            <div class="sidebar">
+              {% if not user.is_authenticated %}
+                  <h3>login</h3>
+                  {% if form.errors %}<h5><span class="error">please try again ...</span></h5>{% endif %}
+                  <form method="post" action="{% url "login" %}" id="login">{% csrf_token %}
+                    <p style="padding: 0 0 9px 0;"><input class="search" type="text" name="email" /></p>
+                    <p style="padding: 0 0 9px 0;"><input class="search" type="password" name="password" /></p>
+                    <p><input class="subscribe" name="login" type="submit" value="submit" /></p>
+                  </form>
+              {% else %}
+                   <a href=""><h3>admin</h3></a>
+              {% endif %}
+            </div>
+          </div>
+        {% block content %}{% endblock %}
+    </div>
+    <div id="footer">
+      <p>Copyright &copy; simplestyle_7 | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">design from HTML5webtemplates.co.uk</a></p>
+    </div>
+  </div>
+  {% block js %}{% endblock %}
+</body>
+</html>
