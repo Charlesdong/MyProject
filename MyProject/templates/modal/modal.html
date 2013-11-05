@@ -15,3 +15,23 @@
     <button class="btn btn-primary" id="id_modal_login">Login</button>
   </div>
 </div>
+
+
+<div id="modal_register" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">注册用户</h3>
+  </div>
+  <div class="modal-body" id="modal_login_form">
+     <form>{% csrf_token %}
+        <span>昵&nbsp;&nbsp;&nbsp;称: </span><input style="margin-left: 30px;" type="text" name="username" id="modal_name_register"/><br>
+        <span>邮&nbsp;&nbsp;&nbsp;箱: </span><input style="margin-left: 30px;" type="text" name="email" id="modal_email_register"/><br>
+        <span>密&nbsp;&nbsp;&nbsp;码: </span><input style="margin-left: 30px;" type="password" name="password" id="modal_password_register"/><br>
+        <span>确认密码: </span><input type="password" style="margin-left: 18px;" name="repassword" id="modal_repassword_register"/><br>
+     </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" id="id_modal_login">注册</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">以后再说</button>
+  </div>
+</div>

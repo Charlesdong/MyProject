@@ -21,12 +21,9 @@
         {% include "comments/data_form.html" %}
     </div>
   </div>
-  {% include "modal/modal.html" %}
 {% endblock %}
 
 {% block js %}
-<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-modal.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/main.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     $('#comment_form form input.submit-preview').remove();

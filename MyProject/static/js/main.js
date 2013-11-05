@@ -1,6 +1,10 @@
 $(document).ready(function() {
+// 登录
     $("#page_login").click(function(){
        $('#modal_login').modal();
+    })
+    $("#page_register").click(function(){
+       $('#modal_register').modal();
     })
 
     $("#id_modal_login").click(function(){
@@ -25,5 +29,11 @@ $(document).ready(function() {
             $("#modal_login_error").show();
         }
     });
+
+    $("#id_modal_register").click(function(){
+
+    });
+
+
 
 });

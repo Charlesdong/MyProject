@@ -10,6 +10,8 @@
   <script type="application/javascript" src="{{ STATIC_URL }}js/bootstrap.js"></script>
   <script type="application/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
   <script type="application/javascript" src="{{ STATIC_URL }}js/jquery-2.0.3.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-modal.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}js/main.js"></script>
 
 {#  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.min.css" />#}
   <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css" />
@@ -77,5 +79,7 @@
     </div>
   </div>
   {% block js %}{% endblock %}
+
+ {% include "modal/modal.html" %}
 </body>
 </html>
