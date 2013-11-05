@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% load comments %}
 {% block content %}
   <div id="content">
     <!-- insert the page content here -->
@@ -7,9 +8,49 @@
       <div class="titie">
       <i>
         {% if not out_url %}{{ object.author }},&nbsp;&nbsp;&nbsp;{{ object.createtime|date:"SHORT_DATE_FORMAT" }}{% else %}转自: {{ out_url }}{% endif %},&nbsp;&nbsp;&nbsp;浏览{{ object.count }}次
+        {% get_comment_count for object as comment_count %}
+        ,&nbsp;&nbsp;&nbsp;{{ comment_count }}次评论
       </i>
       </div>
-    <hr width=750>
+    <hr width="100%;">
     <p>{{ object.content }}</p>
+    <h2>用户评论</h2>
+
+    {% include "comments/data_list.html" %}
+    <div id="comment_form">
+        {% include "comments/data_form.html" %}
     </div>
+  </div>
+  {% include "modal/modal.html" %}
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/main.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#comment_form form input.submit-preview').remove();
+    $('#submit').click(function() {
+        var content = $("#id_comment").val();
+        if (content){
+            $.ajax({
+                type: "POST",
+                data: $('#comment_form form').serialize(),
+                url: "{% comment_form_target %}",
+                cache: false,
+                dataType: "html",
+                success: function(html, textStatus){
+                    alert('发表成功！');
+                    window.location.reload();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $('#comment_form form').replaceWith('Your comment was unable to be posted at this time.  We apologise for the inconvenience.');
+                }
+            });
+        }else{
+            $("#comment_error").show();
+        }
+    });
+});
+</script>
 {% endblock %}

@@ -1,0 +1,9 @@
+Django
+MySQL-python
+requests
+PIL
+BeautifulSoup
+apscheduler
+rabbitmq
+celery
+django-celery

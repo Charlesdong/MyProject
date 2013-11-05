@@ -13,7 +13,16 @@ body
 p
 { padding: 0 0 20px 0;
   line-height: 1.5em;
-  font-size: 107%;}
+  font-size: 107%
+}
+
+p.comment
+{
+    height: 30px;
+}
+
+p.txt
+{height: 210px}
 
 img
 { border: 0;}
@@ -244,7 +253,7 @@ ul#menu li a:hover
 { position:absolute;}
 
 .form_settings
-{ margin: 5px 0 0 0;}
+{ margin: 5px 0 0 0;position: relative}
 
 .form_settings p
 { padding: 0 0 10px 0;}
@@ -252,8 +261,11 @@ ul#menu li a:hover
 .form_settings span
 { padding: 5px 0; 
   float: left; 
-  width: 170px; 
+  width: 74px;
   text-align: left;}
+
+.form_settings span.error
+{ width: 220px;padding-left: 30px}
   
 .form_settings input, .form_settings textarea
 { width: 252px; 
@@ -262,12 +274,13 @@ ul#menu li a:hover
   border: 1px solid #eee;
   padding: 5px 10px;
   background: #fff;
-  color: #FFF;}
+  float: left;
+  }
   
 .form_settings .submit
 { border: 0; 
   width: auto;
-  margin: 0 0 0 200px; 
+  margin: 0 0 0 88px;
   cursor: pointer; 
   color: #35BDF5;
   border: 1px solid #ddd;
@@ -281,7 +294,8 @@ ul#menu li a:hover
   padding: 5px 10px;
   background: #fff;
   width: 252px;
-  overflow: auto;}
+  overflow: auto;
+    float:left}
 
 .form_settings select
 { width: 274px;}
@@ -349,3 +363,5 @@ table tr td
   font-weight: 400;
   src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url(../fonts/YDAoLskQQ5MOAgvHUQCcLRTHiN2BPBirwIkMLKUspj4.woff) format('woff');
 }
+.clears{zoom:1;}
+.clears:after{content:"";display:block;height:0;clear:both;visibility:hidden;}

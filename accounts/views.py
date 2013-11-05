@@ -10,6 +10,7 @@ from django.views.generic import TemplateView, CreateView, View, UpdateView, Red
 from django.views.generic import FormView
 
 from MyProject.settings import EMAIL_FROM_EMAIL
+from bloger.renders import JSONResponseMixin
 from .forms import LoginForm, RegisterForm
 
 
@@ -30,6 +31,20 @@ class LoginView(FormView):
         else:
             context = self.get_context_data(form=form)
             return self.render_to_response(context)
+
+
+class LoginAjaXView(JSONResponseMixin, View):
+
+    def post(self, request, *args, **kwargs):
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(self.request, user)
+                return self.render_to_response({"result": "success"})
+        return self.render_to_response({"result": "fail"})
 
 
 class LogoutView(RedirectView):

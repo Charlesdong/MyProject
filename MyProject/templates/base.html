@@ -7,6 +7,12 @@
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <script type="application/javascript" src="{{ STATIC_URL }}js/bootstrap.js"></script>
+  <script type="application/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+  <script type="application/javascript" src="{{ STATIC_URL }}js/jquery-2.0.3.js"></script>
+
+{#  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.min.css" />#}
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" />
   {% block css %}{% endblock %}
 </head>
@@ -57,7 +63,7 @@
                   <form method="post" action="{% url "login" %}" id="login">{% csrf_token %}
                     <p style="padding: 0 0 9px 0;"><input class="search" type="text" name="email" /></p>
                     <p style="padding: 0 0 9px 0;"><input class="search" type="password" name="password" /></p>
-                    <p><input class="subscribe" name="login" type="submit" value="submit" /></p>
+                    <p><input class="subscribe" name="login" type="submit" value="login" /></p>
                   </form>
               {% else %}
                    <a href=""><h3>admin</h3>&nbsp;&nbsp;<a href="{% url "logout" %}"><h5>logout</h5><a></a>

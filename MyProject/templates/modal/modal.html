@@ -1,0 +1,17 @@
+<!-- Modal -->
+<div id="modal_login" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Login</h3>
+  </div>
+  <div class="modal-body" id="modal_login_form">
+     <form>{% csrf_token %}
+        <h5><span class="error" style="display: none;" id="modal_login_error">please try again ...</span></h5>
+        <span>用户名: </span><input class="search" type="text" name="email" id="modal_email"/>&nbsp;
+        <span>密  码: </span><input class="search" type="password" name="password" id="modal_password"/>
+     </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" id="id_modal_login">Login</button>
+  </div>
+</div>
