@@ -30,10 +30,31 @@ $(document).ready(function() {
         }
     });
 
-    $("#id_modal_register").click(function(){
+// 注册
+    $("#id_modal_register").click(function() {
+        var name = $("#modal_name_register").val();
+        var email = $("#modal_email_register").val();
+        var password = $("#modal_password_register").val();
+        var repassword = $("#modal_repassword_register").val();
+        if (name && email && password && repassword){
+            if (password != repassword){
 
+                return false
+            }
+           $.ajax({
+                type: "post",
+                data: $('#modal_register_form form').serialize(),
+                url: "http://127.0.0.1:8000/accounts/register-ajax/",
+                cache: false,
+                dataType: "json",
+                success: function(data, textStatus){
+                    window.location.reload();
+                },
+                error: function () {
+                   $("#modal_login_error").show();
+                }
+           });
+        }
     });
-
-
 
 });

@@ -1,17 +1,15 @@
 # coding=utf-8
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
 from django.db.models import Q
 from django.http import HttpResponseRedirect
-from django.template import loader
-from django.views.generic import TemplateView, CreateView, View, UpdateView, RedirectView
+from django.views.generic import View, RedirectView
 from django.views.generic import FormView
 
-from MyProject.settings import EMAIL_FROM_EMAIL
 from bloger.renders import JSONResponseMixin
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm
+from utils.tool import send_html_mail
 
 
 class LoginView(FormView):
@@ -54,44 +52,60 @@ class LogoutView(RedirectView):
         return HttpResponseRedirect(reverse('index'))
 
 
-def send_html_mail(subject, params, to_email):
-    template_path = 'mailtemplate.html'
+#class RegisterAjaxView(CreateView):
+#
+#    form_class = RegisterForm
+#    template_name = 'register.html'
+#    success_url = '/'
+#    error_msg = ''
+#
+#    def form_valid(self, form):
+#        username = form.cleaned_data['username']
+#        password = form.cleaned_data['password']
+#        email = form.cleaned_data['email']
+#
+#        if User.objects.filter(Q(username=username) | Q(email=email)).exists():
+#            self.error_msg = 'username or email already exist!'
+#            return self.form_invalid(form)
+#        user = User.objects.create_user(username, email, password)
+#        user.is_active = False
+#        user.save()
+#        return HttpResponseRedirect(self.get_success_url())
+#
+#    def form_invalid(self, form):
+#        context = self.get_context_data(form=form)
+#        context['error_msg'] = self.error_msg
+#        return self.render_to_response(context)
 
-    html_content = loader.render_to_string(
-        template_path,  # 需要渲染的html模板
-        {
-            'params': params  # 参数
-        }
-    )
-    msg = send_mail(subject, html_content, EMAIL_FROM_EMAIL, to_email)
-    msg.content_subtype = "html"  # Main content is now text/html
-    msg.send()
+class RegisterAjaxView(JSONResponseMixin, View):
 
-
-class RegisterView(CreateView):
-
-    form_class = RegisterForm
-    template_name = 'register.html'
-    success_url = '/'
-    error_msg = ''
-
-    def form_valid(self, form):
-        username = form.cleaned_data['username']
-        password = form.cleaned_data['password']
-        email = form.cleaned_data['email']
-
-        if User.objects.filter(Q(username=username) | Q(email=email)).exists():
-            self.error_msg = 'username or email already exist!'
-            return self.form_invalid(form)
-        user = User.objects.create_user(username, email, password)
+    def post(self, request, *args, **kwargs):
+        data = request.POST.copy()
+        if User.objects.filter(Q(username=data["username"]) | Q(email=data["email"])).exists():
+            return self.render_to_response({"result": "error01"})  # 用户名邮箱已存在
+        if data['password'] != data['repassword']:
+            return self.render_to_response({"result": "error02"})  # 两次密码不一致
+        user = User.objects.create_user(data["username"], data["email"], data["password"])
         user.is_active = False
         user.save()
-        return HttpResponseRedirect(self.get_success_url())
+        sessionid = request.COOKIE.get('sessionid', '')
+        send_html_mail(u'完成注册', { "id": user.id, "sessionid": sessionid }, user.email)
 
-    def form_invalid(self, form):
-        context = self.get_context_data(form=form)
-        context['error_msg'] = self.error_msg
-        return self.render_to_response(context)
+
+class ComplateRegisterView(View):
+
+    def get(self, request, *args, **kwargs):
+        user_id = request.GET.get("cookid")
+        try:
+            user = User.objects.get(id=user_id)
+            if not user.is_active:
+                user.is_active = True
+                user.save()
+                return HttpResponseRedirect(reverse('index'))
+        except Exception:
+            pass
+        return  # 错误页
+
 
 
 class ResetpasswordView(RedirectView):
