@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BlogArticle	.\views.py	/^from data.models import BlogArticle$/;"	i
+BlogDetailView	.\urls.py	/^from bloger.views import IndexView, BlogDetailView, CommentPostView$/;"	i
+BlogDetailView	.\views.py	/^class BlogDetailView(DetailView):$/;"	c
+CommentForm	.\views.py	/^from django.contrib.comments import CommentForm$/;"	i
+CommentPostView	.\urls.py	/^from bloger.views import IndexView, BlogDetailView, CommentPostView$/;"	i
+CommentPostView	.\views.py	/^class CommentPostView(JSONResponseMixin, View):$/;"	c
+DetailView	.\views.py	/^from django.views.generic import TemplateView, DetailView, View$/;"	i
+HttpResponse	.\renders.py	/^from django.http import HttpResponse$/;"	i
+IndexView	.\urls.py	/^from bloger.views import IndexView, BlogDetailView, CommentPostView$/;"	i
+IndexView	.\views.py	/^class IndexView(TemplateView):$/;"	c
+JSONResponseMixin	.\renders.py	/^class JSONResponseMixin(object):$/;"	c
+JSONResponseMixin	.\views.py	/^from bloger.renders import JSONResponseMixin$/;"	i
+QuerySet	.\renders.py	/^from django.db.models.query import QuerySet$/;"	i
+TemplateView	.\views.py	/^from django.views.generic import TemplateView, DetailView, View$/;"	i
+View	.\views.py	/^from django.views.generic import TemplateView, DetailView, View$/;"	i
+convert_context_to_json	.\renders.py	/^    def convert_context_to_json(self, context, fields=None, exclude=None):$/;"	m	class:JSONResponseMixin
+default_serializer	.\renders.py	/^def default_serializer(obj):$/;"	f
+get_context_data	.\views.py	/^    def get_context_data(self, **kwargs):$/;"	m	class:IndexView
+get_object	.\views.py	/^    def get_object(self, queryset=None):$/;"	m	class:BlogDetailView
+json	.\renders.py	/^import json$/;"	i
+json_required	.\renders.py	/^    def json_required(self, request):$/;"	m	class:JSONResponseMixin
+json_serializer	.\renders.py	/^def json_serializer(query_list, fields=None, exclude=None):$/;"	f
+model	.\views.py	/^    model = BlogArticle$/;"	v	class:BlogDetailView
+models	.\renders.py	/^from django.db import models$/;"	i
+patterns	.\urls.py	/^from django.conf.urls import patterns, url$/;"	i
+post	.\views.py	/^    def post(self, request, *args, **kwargs):$/;"	m	class:CommentPostView
+render_to_response	.\renders.py	/^    def render_to_response(self, context, callback=None, **response_kwargs):$/;"	m	class:JSONResponseMixin
+response_class	.\renders.py	/^    response_class = HttpResponse$/;"	v	class:JSONResponseMixin
+serialize	.\renders.py	/^from django.core.serializers import serialize$/;"	i
+template_name	.\views.py	/^    template_name = "page.html"$/;"	v	class:BlogDetailView
+template_name	.\views.py	/^    template_name = 'index.html'$/;"	v	class:IndexView
+url	.\urls.py	/^from django.conf.urls import patterns, url$/;"	i
+urlpatterns	.\urls.py	/^urlpatterns = patterns('',$/;"	v

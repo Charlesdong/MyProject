@@ -47,5 +47,30 @@ class OschinaFetch(SpiderBase):
 
 
 if __name__ == '__main__':
-    fetch = OschinaFetch(url='http://www.oschina.net/')
-    fetch.generate_html()
+    #fetch = OschinaFetch(url='http://www.oschina.net/')
+    #fetch.generate_html()
+    import os
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "MyProject.settings")
+
+    from data.models import BlogArticle, TestCreate
+
+    #TestCreate.objects.get_or_create(defaults__exact="cccc", testfk_id=1, defaults={"defaults": "aaaa"})
+    a = TestCreate.objects.all()[:1]
+    for i in a:
+        print i.id
+
+
+    import time
+    #n = time.time()
+    #print a[0].testfk_id
+    #print time.time() - n
+    #
+    #n = time.time()
+    #print a[0].testfk.id
+    #print time.time() - n
+
+    #
+    #print a[0].testfk.id
+    from django.db import connection
+    for x in connection.queries:
+        print 'time: %s, sql: %s' % (x['time'], x['sql'])

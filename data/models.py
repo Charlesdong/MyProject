@@ -20,6 +20,15 @@ class BlogArticle(models.Model):
             pass
         db_table = u'blogarticle'
 
+class TestCreate(models.Model):
+    defaults = models.CharField('文章标题', max_length=300, null=True, blank=True)
+    testfk = models.ForeignKey(BlogArticle, null=True)
+
+    class Meta:
+        def __init__(self):
+            pass
+        db_table = u'testcreate'
+
 
 
 #from apscheduler.scheduler import Scheduler

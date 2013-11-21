@@ -1,6 +1,6 @@
 # coding=utf-8
 from django.contrib.comments import CommentForm
-from django.views.generic import TemplateView, DetailView, View
+from django.views.generic import TemplateView, DetailView, View, ListView
 from bloger.renders import JSONResponseMixin
 from data.models import BlogArticle
 
@@ -18,13 +18,18 @@ class IndexView(TemplateView):
 class BlogDetailView(DetailView):
 
     model = BlogArticle
-    template_name = "page.html"
 
     def get_object(self, queryset=None):
         obj = super(BlogDetailView, self).get_object(queryset)
         obj.count += 1
         obj.save()
         return obj
+
+
+class BlogListView(ListView):
+
+    model = BlogArticle
+    paginate_by = 10
 
 
 class CommentPostView(JSONResponseMixin, View):
