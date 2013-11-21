@@ -11,14 +11,9 @@ class BlogArticle(models.Model):
     createtime = models.DateTimeField('创建时间', auto_now_add=True)
     updatetime = models.DateTimeField('更新时间', auto_now=True)
 
-    @property
-    def __unicode__(self):
-        return self.title
-
     class Meta:
-        def __init__(self):
-            pass
         db_table = u'blogarticle'
+        ordering = ('createtime', )
 
 class TestCreate(models.Model):
     defaults = models.CharField('文章标题', max_length=300, null=True, blank=True)

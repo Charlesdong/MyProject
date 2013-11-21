@@ -119,6 +119,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.comments',
+    'django_admin_bootstrapped',
+    'django.contrib.admin',
 
     'MyProject',
     'accounts',

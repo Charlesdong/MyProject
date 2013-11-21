@@ -3,7 +3,7 @@
 {% block content %}
 <div id="content">
     {% for object in object_list %}
-        <h1><a href={% url "article-detail" pk=object.pk %}>{{ object.title }}</a></h1>
+        <h4><a href={% url "article-detail" pk=object.pk %}>{{ object.title }}</a></h4>
          <div class="titie">
           <i>
               {% if out_url %}
