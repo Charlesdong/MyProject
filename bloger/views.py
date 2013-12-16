@@ -1,12 +1,14 @@
 # coding=utf-8
 from django.contrib.comments import CommentForm
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 from django.views.generic import TemplateView, DetailView, View, ListView
 from bloger.renders import JSONResponseMixin
 from data.models import BlogArticle
 
 
 class IndexView(TemplateView):
-
+    
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
@@ -42,3 +44,6 @@ class CommentPostView(JSONResponseMixin, View):
             self.render_to_response({"result": "success"})
         else:
             self.render_to_response({"result": "fail"})
+
+def test(request):
+    return redirect('http://127.0.0.1:8000/blog/article/detail/1?success_flag=1')

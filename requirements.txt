@@ -4,7 +4,6 @@ requests
 PIL
 BeautifulSoup
 apscheduler
-rabbitmq
-celery
-django-celery
-django-admin-bootstrapped
+django-pagedown
+markdown
+grappelli
