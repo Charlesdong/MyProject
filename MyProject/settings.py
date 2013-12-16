@@ -120,9 +120,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'grappelli',
     'django.contrib.admin',
-    #'django.contrib.markup',
+    'django.contrib.markup',
     #
-    #'pagedown',
+    'pagedown',
     'MyProject',
     'accounts',
     'bloger',

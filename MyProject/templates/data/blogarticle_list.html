@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <!-- main -->
 <div id="main">
     <article class="post">
         <div class="primary">
             {% for object in object_list %}
                 <h2><a href={% url "article-detail" pk=object.pk %}>{{ object.title }}</a></h2>
-                <p class="post-info"><span>Filed under</span> <a href="index.html">templates</a>, <a href="index.html">internet</a></p>
+                <p class="post-info"><span>Filed under</span> <a href="javascript:;">{{ object.classify.title }}</p>
                 <p>{{ object.content|truncatewords_html:50 }}</p>
                 <p><a class="more" href="">continue reading &raquo;</a></p>
         </div>

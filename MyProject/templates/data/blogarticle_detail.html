@@ -1,55 +1,48 @@
 {% extends "base.html" %}
 
-{% load comments %}
 {% load markup %}
 {% block content %}
-  <div id="content">
-    <!-- insert the page content here -->
-    <h1>{{ object.title }}</h1>
-      <div class="titie">
-      <i>
-        {% if not out_url %}{{ object.author }},&nbsp;&nbsp;&nbsp;{{ object.createtime|date:"SHORT_DATE_FORMAT" }}{% else %}转自: {{ out_url }}{% endif %},&nbsp;&nbsp;&nbsp;浏览{{ object.count }}次
-        {% get_comment_count for object as comment_count %}
-        ,&nbsp;&nbsp;&nbsp;{{ comment_count }}次评论
-      </i>
-      </div>
-    <hr width="100%;">
-    <p>{{ object.content|markdown }}</p>
-    <h2>用户评论</h2>
+<!-- main -->
+        <div id="main">
+   <!-- post -->
+      	    <article class="post single">
 
-    {% include "comments/data_list.html" %}
-    <div id="comment_form">
-        {% include "comments/data_form.html" %}
+                <!-- primary -->
+         	    <div class="primary">
+
+            	    <h2><a href="javascript:;">{{ object.title }}</a></h2>
+
+                    <p class="post-info"><span>分类</span> <a href="javascript:;">{{ object.classify.title }}</a></p>
+
+{#                    <div class="image-section">#}
+{#              		    <img src="{{ STATIC_URL }}images/img-post.jpg" alt="image post" height="206" width="498"/>#}
+{#         	        </div>#}
+
+				    {{ object.content|markdown }}
+
+                <!-- /primary -->
+                </div>
+
+
+            <aside>
+
+            	<p class="dateinfo">JAN<span>31</span></p>
+
+                <div class="post-meta">
+               	    <h4>文章信息</h4>
+                    <ul>
+                    <li class="user"><a href="#">{{ object.author }}</a></li>
+                    <li class="time"><a href="javascript:;">{{ object.createtime|date:"H:i a" }}</a></li>
+                    <li class="comment"><a href="#">{{ object.comment.all|length }} comments</a></li>
+                </ul>
+                </div>
+
+
+
+            </aside>
+
+        <!-- /post -->
+        </article>
     </div>
-  </div>
-{% endblock %}
-
-{% block js %}
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#comment_form form input.submit-preview').remove();
-    $('#submit').click(function() {
-        var content = $("#id_comment").val();
-        if (content){
-            $.ajax({
-                type: "POST",
-                data: $('#comment_form form').serialize(),
-                url: "{% comment_form_target %}",
-                cache: false,
-                dataType: "html",
-                success: function(html, textStatus){
-                    alert('发表成功！');
-                    window.location.reload();
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    $('#comment_form form').replaceWith('Your comment was unable to be posted at this time.  We apologise for the inconvenience.');
-                }
-            });
-        }else{
-            $("#comment_error").show();
-        }
-    });
-});
-</script>
 {% endblock %}
 
