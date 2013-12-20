@@ -27,7 +27,7 @@ class BlogArticle(models.Model):
     title = models.CharField('文章标题', max_length=300, null=True, blank=True)
     content = models.TextField('文章内容', null=True, blank=True)
     out_url = models.CharField('转自url', max_length=300, null=True, blank=True)
-    author = models.CharField('作者', max_length=30, null=True, blank=True, default='Charles')
+    author = models.CharField('作者', max_length=30, null=True, blank=True, default='Obadiah')
     count = models.IntegerField('查看次数', default=0, blank=True)
     createtime = models.DateTimeField('创建时间', auto_now_add=True)
     updatetime = models.DateTimeField('更新时间', auto_now=True)

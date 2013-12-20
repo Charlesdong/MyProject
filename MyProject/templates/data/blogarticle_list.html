@@ -7,9 +7,9 @@
         <div class="primary">
             {% for object in object_list %}
                 <h2><a href={% url "article-detail" pk=object.pk %}>{{ object.title }}</a></h2>
-                <p class="post-info"><span>Filed under</span> <a href="javascript:;">{{ object.classify.title }}</p>
+                <p class="post-info"><span>标签：</span> <a href="javascript:;">{{ object.classify.title }}</a></p>
                 <p>{{ object.content|truncatewords_html:50 }}</p>
-                <p><a class="more" href="">continue reading &raquo;</a></p>
+                <p><a class="more" href={% url "article-detail" pk=object.pk %}>continue reading &raquo;</a></p>
         </div>
         <aside>
             <p class="dateinfo">{{ object.createtime|date:"M" }}<span>{{ object.createtime|date:"d" }}</span></p>

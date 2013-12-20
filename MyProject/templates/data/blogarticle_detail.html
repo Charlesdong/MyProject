@@ -43,6 +43,59 @@
 
         <!-- /post -->
         </article>
+        <div class="post-bottom-section">
+
+		    <h4>评论</h4>
+
+            <div class="primary">
+            	<form action="index.html" method="post" id="commentform">
+                    <div>
+						<label for="email">邮箱<span>*</span></label>
+						<input id="email" name="email" value="Your Email" type="text" tabindex="2" />
+					</div>
+                    <div>
+						<label for="website">验证码</label>
+						<input width="40px" value="输入验证码"/><img id="captcha" src="/captcha/image/1543c2acdb523646da678c4ba6f8f2a349f7a722/" style="display: none;"><a href="javascript:;" id="get_code">获取验证码</a>
+					</div>
+                    <div>
+						<label for="message">内容<span>*</span></label>
+						<textarea id="message" name="message" rows="10" cols="18" tabindex="4"></textarea>
+					</div>
+                    <div class="no-border">
+					    <input class="button" type="submit" value="Submit Comment" tabindex="5" />
+					</div>
+
+               </form>
+
+            </div>
+
+         </div>
     </div>
+{% endblock %}
+
+{% block js %}
+<script>
+$('#get_code').click(function(){
+   $.ajax({
+		 type: "get",
+		 async: false,
+		 url: "{% url 'captcha-ajax' %}",
+		 dataType: "json",
+		 success: function(respond){
+             if (respond.result == 'success'){
+                 $('#captcha').show();
+                 $('#captcha').attr("src", respond.image_url);
+                 $('#get_code').html("不会算？");
+             }else{
+                 alert("获取验证码失败");
+             }
+         },
+         error: function(){
+			 alert('后台数据出错');
+		 }
+   });
+});
+</script>
+
 {% endblock %}
 

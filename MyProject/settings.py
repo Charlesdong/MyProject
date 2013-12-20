@@ -121,6 +121,7 @@ INSTALLED_APPS = (
     'grappelli',
     'django.contrib.admin',
     'django.contrib.markup',
+    'captcha',
     #
     'pagedown',
     'MyProject',
@@ -129,7 +130,7 @@ INSTALLED_APPS = (
     'data'
 )
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
-
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.

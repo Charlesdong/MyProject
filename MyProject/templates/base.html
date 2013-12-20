@@ -11,10 +11,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>CoolBlue</title>
+    <title>Obadiah</title>
 
     <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/coolblue.css" />
-
+    {% block css %}
+    {% endblock %}
     <!--[if lt IE 9]>
 	    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -31,13 +32,13 @@
 <div id="header-wrap"><header>
 
  	<hgroup>
-        <h1><a href="index.html">Coolblue</a></h1>
-        <h3>Just Another Styleshout Template</h3>
+        <h1>Obadiah</h1>
+        <h3>servant of jehovah</h3>
     </hgroup>
 
     <nav>
 		<ul>
-			<li id="current"><a href="index.html">Home</a><span></span></li>
+			<li id="current"><a href="/">Blog</a><span></span></li>
 			<li><a href="style.html">Style Demo</a><span></span></li>
 			<li><a href="blog.html">Blog</a><span></span></li>
 			<li><a href="archive.html">Archives</a><span></span></li>
@@ -53,7 +54,7 @@
    <form id="quick-search" method="get" action="index.html">
       <fieldset class="search">
          <label for="qsearch">Search:</label>
-         <input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" />
+         <input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." onfocus="this.value=''" title="Start typing and hit ENTER" />
          <button class="btn" title="Submit Search">Search</button>
       </fieldset>
    </form>
@@ -81,7 +82,7 @@
          	    <h3>About Me</h3>
 
                 <p>
-		        <a href="index.html"><img src="images/gravatar.jpg" width="42" height="42" alt="firefox" class="align-left" /></a>
+		        <a href="index.html"><img src="{{ STATIC_URL }}images/gravatar.jpg" width="42" height="42" alt="firefox" class="align-left" /></a>
                 Lorem ipsum dolor sit, consectetuer adipiscing. Donec libero. Suspendisse bibendum.
 			    Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
 			    posuere nunc justo tempus leo suspendisse bibendum. <a href="index.html">Learn more...</a>
@@ -91,21 +92,7 @@
 
 			<div class="sidemenu">
 
-				<h3>Sidebar Menu</h3>
-                <ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="index.html#TemplateInfo">TemplateInfo</a></li>
-					<li><a href="style.html">Style Demo</a></li>
-					<li><a href="blog.html">Blog</a></li>
-					<li><a href="archives.html">Archives</a></li>
-					<li><a href="http://themeforest.net?ref=ealigam" title="Web Templates">Web Templates</a></li>
-				</ul>
-
-			</div>
-
-			<div class="sidemenu">
-
-				<h3>Sponsors</h3>
+				<h3>分类</h3>
 
                 <ul>
 			        <li><a href="http://themeforest.net?ref=ealigam" title="Site Templates">Themeforest
@@ -167,16 +154,16 @@
 		    <h3>Flickr Photos </h3>
 
 		    <p class="thumbs">
-			<a href="index.html"><img src="images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
-			<a href="index.html"><img src="images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
-			<a href="index.html"><img src="images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
-			<a href="index.html"><img src="images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
-			<a href="index.html"><img src="images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
-			<a href="index.html"><img src="images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
-			<a href="index.html"><img src="images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
-			<a href="index.html"><img src="images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
-            <a href="index.html"><img src="images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
-			<a href="index.html"><img src="images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
+			<a href="index.html"><img src="{{ STATIC_URL }}images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
+			<a href="index.html"><img src="{{ STATIC_URL }}images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
+			<a href="index.html"><img src="{{ STATIC_URL }}images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
+			<a href="index.html"><img src="{{ STATIC_URL }}images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
+			<a href="index.html"><img src="{{ STATIC_URL }}images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
+			<a href="index.html"><img src="{{ STATIC_URL }}images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
+			<a href="index.html"><img src="{{ STATIC_URL }}images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
+			<a href="index.html"><img src="{{ STATIC_URL }}images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
+            <a href="index.html"><img src="{{ STATIC_URL }}images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
+			<a href="index.html"><img src="{{ STATIC_URL }}images/thumb.png" width="42" height="43" alt="thumbnail" /></a>
             </p>
 
         </div>
@@ -198,16 +185,16 @@
 
             <ul class="subscribe-stuff">
       	        <li><a title="RSS" href="index.html" rel="nofollow">
-				<img alt="RSS" title="RSS" src="images/social_rss.png" /></a>
+				<img alt="RSS" title="RSS" src="{{ STATIC_URL }}images/social_rss.png" /></a>
 			    </li>
       	        <li><a title="Facebook" href="index.html" rel="nofollow">
-				<img alt="Facebook" title="Facebook" src="images/social_facebook.png" /></a>
+				<img alt="Facebook" title="Facebook" src="{{ STATIC_URL }}images/social_facebook.png" /></a>
 			    </li>
 			    <li><a title="Twitter" href="index.html" rel="nofollow">
-				<img alt="Twitter" title="Twitter" src="images/social_twitter.png" /></a>
+				<img alt="Twitter" title="Twitter" src="{{ STATIC_URL }}images/social_twitter.png" /></a>
 			    </li>
 			    <li><a title="E-mail this story to a friend!" href="index.html" rel="nofollow">
-				<img alt="E-mail this story to a friend!" title="E-mail this story to a friend!" src="images/social_email.png" /></a>
+				<img alt="E-mail this story to a friend!" title="E-mail this story to a friend!" src="{{ STATIC_URL }}images/social_email.png" /></a>
 			    </li>
             </ul>
 
@@ -336,4 +323,6 @@
 </footer>
 
 </body>
+{% block js %}
+{% endblock %}
 </html>
