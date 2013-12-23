@@ -1,0 +1,24 @@
+<div class="post-bottom-section">
+    <h4>评论</h4>
+    {{ form }}
+    <div class="primary">
+        <form action="" method="post" id="commentform">
+            <div>
+                <label for="email">邮箱<span>*</span></label>
+                <input id="email" name="email" value="{{ form.email.value|default_if_none:'Your Email' }}" type="text" tabindex="2" />
+            </div>
+            <div>
+                <label for="website">验证码</label>
+                <input width="30px" value="{{ form.captcha.value }}" name="captcha" />获取验证码
+            </div>
+            <div>
+                <label for="message">内容<span>*</span></label>
+                <textarea id="message" name="content" rows="10" cols="18" tabindex="4" value="{{ form.content.value|default_if_none:'说点什么。。。' }}"></textarea>
+            </div>
+            <div class="no-border">
+                <input class="button" type="submit" value="Submit Comment" tabindex="5" />
+            </div>
+
+       </form>
+    </div>
+</div>

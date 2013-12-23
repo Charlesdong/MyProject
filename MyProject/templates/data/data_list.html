@@ -1,0 +1,5 @@
+{% load comments %}
+{% get_comment_list for object as comment_list %}
+{%for comment in comment_list %}
+    <p>{{ comment.submit_date|date:"SHORT_DATE_FORMAT" }},&nbsp;&nbsp;{{ comment.user_name }}&nbsp;&nbsp;<span style="color:#35BDF5;">said:</span> {{ comment.comment|safe }}</p>
+{%endfor%}
