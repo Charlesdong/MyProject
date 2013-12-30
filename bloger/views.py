@@ -24,12 +24,6 @@ class BlogDetailView(DetailView):
 
     model = BlogArticle
 
-    def get_object(self, queryset=None):
-        obj = super(BlogDetailView, self).get_object(queryset)
-        obj.count += 1
-        obj.save()
-        return obj
-
 
 class BlogListView(ListView):
 
@@ -37,9 +31,28 @@ class BlogListView(ListView):
     paginate_by = 10
 
 
-class BlogCommentView(JSONResponseMixin, CreateView):
+class BlogCommentsView(JSONResponseMixin, DetailView):
 
     form_class = CommentModelForm
+
+    def get(self, request, *args, **kwargs):
+        cptch_key = CaptchaStore.generate_key()
+        new_cptch_image = captcha_image_url(cptch_key)
+        result = {'result': 'success', 'image_url': new_cptch_image, 'cptch_key': cptch_key}
+
+        return self.render_to_response(result)
+
+    def form_valid(self, form):
+        form.save()
+        human = True
+        if self.request.is_ajax():
+            to_json_responce = dict()
+            to_json_responce['status'] = 1
+
+            to_json_responce['cptch_key'] = CaptchaStore.generate_key()
+            to_json_responce['cptch_image'] = captcha_image_url(to_json_responce['new_cptch_key'])
+
+            return self.render_to_response(result)
 
     def form_invalid(self, form):
         if self.request.is_ajax():
@@ -47,36 +60,7 @@ class BlogCommentView(JSONResponseMixin, CreateView):
             to_json_responce['status'] = 0
             to_json_responce['form_errors'] = form.errors
 
-            to_json_responce['new_cptch_key'] = CaptchaStore.generate_key()
-            to_json_responce['new_cptch_image'] = captcha_image_url(to_json_responce['new_cptch_key'])
+            to_json_responce['cptch_key'] = CaptchaStore.generate_key()
+            to_json_responce['cptch_image'] = captcha_image_url(to_json_responce['new_cptch_key'])
 
-            return self.render_to_response(to_json_responce)
-
-    def form_valid(self, form):
-        form.save()
-        if self.request.is_ajax():
-            to_json_responce = dict()
-            to_json_responce['status'] = 1
-
-            to_json_responce['new_cptch_key'] = CaptchaStore.generate_key()
-            to_json_responce['new_cptch_image'] = captcha_image_url(to_json_responce['new_cptch_key'])
-
-            return self.render_to_response(to_json_responce)
-
-def test(request):
-    if request.POST:
-        form = CommentModelForm(request.POST)
-        if form.is_valid():
-            return HttpResponseRedirect(request.path + '?ok')
-    else:
-        form = CommentModelForm()
-
-    return render_to_response('home.html', dict(
-        form=form
-    ), context_instance=RequestContext(request))
-
-
-
-
-
-
+            return self.render_to_response(result)

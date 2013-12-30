@@ -26,8 +26,9 @@
         </aside>
     </article>
     <!-- /post -->
- </div>
     {% include "data/data_form.html" %}
+ </div>
+    
 {% endblock %}
 
 {% block js %}
@@ -36,13 +37,14 @@ $('#get_code').click(function(){
    $.ajax({
 		 type: "get",
 		 async: false,
-		 url: "",
+		 url: "/blog/article/comments/",
 		 dataType: "json",
 		 success: function(respond){
              if (respond.result == 'success'){
-                 $('#captcha').show();
-                 $('#captcha').attr("src", respond.image_url);
-                 $('#get_code').html("不会算？");
+                 $('#image_url').show();
+                 $('#image_url').attr("src", respond.image_url);
+                 $('#id_captcha_0').val(respond.cptch_key)
+                 $('#get_code').html("reflash");
              }else{
                  alert("获取验证码失败");
              }
