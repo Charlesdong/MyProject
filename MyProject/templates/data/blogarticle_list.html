@@ -3,9 +3,9 @@
 {% block content %}
     <!-- main -->
 <div id="main">
+  {% for object in object_list %}
     <article class="post">
         <div class="primary">
-            {% for object in object_list %}
                 <h2><a href='/blog/article/detail/{{ object.pk }}/'>{{ object.title }}</a></h2>
                 <p class="post-info"><span>标签：</span> <a href="javascript:;">{{ object.classify.title }}</a></p>
                 <p>{{ object.content|truncatewords_html:50 }}</p>
@@ -19,13 +19,12 @@
                 <ul>
                     <li class="user"><a href="#">{{ object.author }}</a></li>
                     <li class="time"><a href="javascript:;">{{ object.createtime|date:"H:i a" }}</a></li>
-                    <li class="comment"><a href="#">{{ object.comment.all|length }} comments</a></li>
                 </ul>
             </div>
 
         </aside>
-        {% endfor %}
     </article>
+  {% endfor %}
     {% if object_list %}
         {% if is_paginated %}
             <ul class="pager">

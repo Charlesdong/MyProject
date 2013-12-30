@@ -20,41 +20,12 @@
                 <ul>
                 <li class="user"><a href="#">{{ object.author }}</a></li>
                 <li class="time"><a href="javascript:;">{{ object.createtime|date:"H:i a" }}</a></li>
-                <li class="comment"><a href="#">{{ object.comment.all|length }} comments</a></li>
             </ul>
             </div>
         </aside>
     </article>
     <!-- /post -->
-    {% include "data/data_form.html" %}
  </div>
     
-{% endblock %}
-
-{% block js %}
-<script>
-$('#get_code').click(function(){
-   $.ajax({
-		 type: "get",
-		 async: false,
-		 url: "/blog/article/comments/",
-		 dataType: "json",
-		 success: function(respond){
-             if (respond.result == 'success'){
-                 $('#image_url').show();
-                 $('#image_url').attr("src", respond.image_url);
-                 $('#id_captcha_0').val(respond.cptch_key)
-                 $('#get_code').html("reflash");
-             }else{
-                 alert("获取验证码失败");
-             }
-         },
-         error: function(){
-			 alert('后台数据出错');
-		 }
-   });
-});
-</script>
-
 {% endblock %}
 

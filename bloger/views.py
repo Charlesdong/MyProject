@@ -5,7 +5,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic import TemplateView, DetailView, ListView, CreateView
-from bloger.forms import CommentModelForm
 from bloger.renders import JSONResponseMixin
 from data.models import BlogArticle
 
@@ -29,38 +28,12 @@ class BlogListView(ListView):
 
     model = BlogArticle
     paginate_by = 10
+    context_object_name = 'object_list'
 
+    def get_queryset(self):
+        classfy_id = self.request.GET.get('classfy_id', None)
 
-class BlogCommentsView(JSONResponseMixin, DetailView):
-
-    form_class = CommentModelForm
-
-    def get(self, request, *args, **kwargs):
-        cptch_key = CaptchaStore.generate_key()
-        new_cptch_image = captcha_image_url(cptch_key)
-        result = {'result': 'success', 'image_url': new_cptch_image, 'cptch_key': cptch_key}
-
-        return self.render_to_response(result)
-
-    def form_valid(self, form):
-        form.save()
-        human = True
-        if self.request.is_ajax():
-            to_json_responce = dict()
-            to_json_responce['status'] = 1
-
-            to_json_responce['cptch_key'] = CaptchaStore.generate_key()
-            to_json_responce['cptch_image'] = captcha_image_url(to_json_responce['new_cptch_key'])
-
-            return self.render_to_response(result)
-
-    def form_invalid(self, form):
-        if self.request.is_ajax():
-            to_json_responce = dict()
-            to_json_responce['status'] = 0
-            to_json_responce['form_errors'] = form.errors
-
-            to_json_responce['cptch_key'] = CaptchaStore.generate_key()
-            to_json_responce['cptch_image'] = captcha_image_url(to_json_responce['new_cptch_key'])
-
-            return self.render_to_response(result)
+        queryset = self.model._default_manager.all()
+        if classfy_id:
+            queryset = queryset.filter(classify_id=classfy_id)
+        return queryset
