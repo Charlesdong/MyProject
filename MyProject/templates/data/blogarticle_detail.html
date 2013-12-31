@@ -10,6 +10,9 @@
         <div class="primary">
             <h2><a href="javascript:;">{{ object.title }}</a></h2>
             <p class="post-info"><span>分类</span> <a href="javascript:;">{{ object.classify.title }}</a></p>
+            {% if object.movie_url %}
+                <embed src="{{ object.movie_url }}" quality="high" width="500" height="400" align="middle" allowScriptAccess="sameDomain" allowFullscreen="true" allownetworking="internal" type="application/x-shockwave-flash"></embed>
+            {% endif %}
             {{ object.content|markdown }}
         </div>
         <!-- /primary -->
@@ -18,7 +21,7 @@
             <div class="post-meta">
                 <h4>文章信息</h4>
                 <ul>
-                <li class="user"><a href="#">{{ object.author }}</a></li>
+                <li class="user"><a href="javascript:;">{{ object.author }}</a></li>
                 <li class="time"><a href="javascript:;">{{ object.createtime|date:"H:i a" }}</a></li>
             </ul>
             </div>
@@ -28,4 +31,12 @@
  </div>
     
 {% endblock %}
-
+{% block js %}
+    <script type="text/javascript">
+$(function () {
+     var converter = new Markdown.Converter();
+     var editor = new Markdown.Editor(converter);
+{#     editor.run();#}
+     });
+</script>
+{% endblock %}

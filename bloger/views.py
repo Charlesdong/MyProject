@@ -33,7 +33,20 @@ class BlogListView(ListView):
     def get_queryset(self):
         classfy_id = self.request.GET.get('classfy_id', None)
 
-        queryset = self.model._default_manager.all()
+        queryset = self.model.objects.all()
+        if classfy_id:
+            queryset = queryset.filter(classify_id=classfy_id)
+        return queryset
+
+
+class BlogLifeListView(ListView):
+
+    model = BlogArticle
+    paginate_by = 10
+    context_object_name = 'object_list'
+
+    def get_queryset(self):
+        queryset = self.model.objects.all()
         if classfy_id:
             queryset = queryset.filter(classify_id=classfy_id)
         return queryset

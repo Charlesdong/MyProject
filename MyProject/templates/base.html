@@ -14,15 +14,14 @@
     <title>Obadiah</title>
 
     <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/coolblue.css" />
+    <link href="{{ STATIC_URL }}css/lightbox.css" rel="stylesheet" />
     {% block css %}
     {% endblock %}
-    <!--[if lt IE 9]>
-	    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/jquery-1.6.1.min.js"><\/script>')</script>
+    <script src="{{ STATIC_URL }}js/jquery-1.10.2.min.js"></script>
     <script src="{{ STATIC_URL }}js/scrollToTop.js"></script>
+    <script src="{{ STATIC_URL }}js/lightbox-2.6.min.js"></script>
+    <script src="{{ STATIC_URL }}js/modernizr.custom.js"></script>
 
 </head>
 
@@ -39,15 +38,15 @@
     <nav>
 		<ul>
 			<li id="current"><a href="/">Blog</a><span></span></li>
-			<li><a href="index.html">About</a><span></span></li>
+			<li><a href="#">关于</a><span></span></li>
 		</ul>
 	</nav>
 
-   <form id="quick-search" method="get" action="index.html">
+   <form id="quick-search" method="get" action="http://www.google.com/search">
       <fieldset class="search">
          <label for="qsearch">Search:</label>
-         <input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." onfocus="this.value=''" title="Start typing and hit ENTER" />
-         <button class="btn" title="Submit Search">Search</button>
+         <input class="tbox" id="qsearch" type="text" name="q" value="Search..." onfocus="this.value=''" title="Start typing and hit ENTER" />
+         <button class="btn" name="btnG"title="Submit Search">Search</button>
       </fieldset>
    </form>
 
@@ -74,10 +73,9 @@
          	    <h3>About Me</h3>
 
                 <p>
-		        <a href="index.html"><img src="{{ STATIC_URL }}images/gravatar.jpg" width="42" height="42" alt="firefox" class="align-left" /></a>
-                Lorem ipsum dolor sit, consectetuer adipiscing. Donec libero. Suspendisse bibendum.
-			    Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
-			    posuere nunc justo tempus leo suspendisse bibendum. <a href="index.html">Learn more...</a>
+{#		        <a href="#"><img src="{{ STATIC_URL }}images/me.jpg" data-lightbox="me" width="42" height="42" alt="firefox" class="align-left" /></a>#}
+                <a href="{{ STATIC_URL }}images/me.jpg" data-lightbox="me" title="me"><img src="{{ STATIC_URL }}images/me.jpg" width="42" height="42" alt="firefox" class="align-left" /></a>
+                Obadiah 来自《圣经》旧约中的先知书《俄巴底亚书》，译为耶和华的仆人。我用这个名字也意味着愿意上帝成为我的主人，做我生命中的救主。
 			    </p>
 
             </div>
@@ -120,7 +118,6 @@
 <footer>
 
 	<p class="footer-left">
-
 	</p>
 
 	<p class="footer-right">
