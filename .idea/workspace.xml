@@ -46,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bloger/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="22" selection-start="1246" selection-end="1246" vertical-scroll-proportion="-21.64" vertical-offset="292" max-vertical-offset="969">
+            <state line="1" column="67" selection-start="82" selection-end="82" vertical-scroll-proportion="0.027914613" vertical-offset="0" max-vertical-offset="646">
               <folding />
             </state>
           </provider>
@@ -64,10 +64,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyProject/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="21" selection-start="1682" selection-end="1682" vertical-scroll-proportion="1.5378289" vertical-offset="0" max-vertical-offset="2363">
+            <state line="21" column="28" selection-start="754" selection-end="754" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="2363">
               <folding />
             </state>
           </provider>
@@ -113,10 +113,10 @@
         <option value="$PROJECT_DIR$/MyProject/static/css/lightbox.css" />
         <option value="$PROJECT_DIR$/MyProject/templates/another_page.html" />
         <option value="$PROJECT_DIR$/MyProject/templates/base_life.html" />
-        <option value="$PROJECT_DIR$/bloger/views.py" />
         <option value="$PROJECT_DIR$/data/models.py" />
         <option value="$PROJECT_DIR$/MyProject/templates/data/blogarticle_detail.html" />
         <option value="$PROJECT_DIR$/MyProject/templates/base.html" />
+        <option value="$PROJECT_DIR$/bloger/views.py" />
       </list>
     </option>
   </component>
@@ -181,47 +181,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MyProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
+              <option name="myItemId" value="bloger" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -233,7 +193,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/git/lykactivity" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
@@ -719,13 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bloger/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="22" selection-start="1246" selection-end="1246" vertical-scroll-proportion="-21.64" vertical-offset="292" max-vertical-offset="969">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="13" selection-start="896" selection-end="905" vertical-scroll-proportion="-6.68" vertical-offset="326" max-vertical-offset="935">
@@ -742,7 +695,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MyProject/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="21" selection-start="1682" selection-end="1682" vertical-scroll-proportion="1.5378289" vertical-offset="0" max-vertical-offset="2363">
+        <state line="21" column="28" selection-start="754" selection-end="754" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="2363">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bloger/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="67" selection-start="82" selection-end="82" vertical-scroll-proportion="0.027914613" vertical-offset="0" max-vertical-offset="646">
           <folding />
         </state>
       </provider>
