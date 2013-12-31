@@ -46,10 +46,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bloger/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="67" selection-start="82" selection-end="82" vertical-scroll-proportion="0.027914613" vertical-offset="0" max-vertical-offset="646">
+            <state line="18" column="0" selection-start="386" selection-end="386" vertical-scroll-proportion="-12.24" vertical-offset="0" max-vertical-offset="646">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MyProject/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="123" column="5" selection-start="4449" selection-end="4449" vertical-scroll-proportion="0.6254296" vertical-offset="1727" max-vertical-offset="3230">
               <folding />
             </state>
           </provider>
@@ -107,7 +116,6 @@
         <option value="$PROJECT_DIR$/MyProject/templates/data/data_form.html" />
         <option value="$PROJECT_DIR$/MyProject/templates/examples.html" />
         <option value="$PROJECT_DIR$/bloger/urls.py" />
-        <option value="$PROJECT_DIR$/MyProject/settings.py" />
         <option value="$PROJECT_DIR$/MyProject/processors.py" />
         <option value="$PROJECT_DIR$/MyProject/templates/data/blogarticle_list.html" />
         <option value="$PROJECT_DIR$/MyProject/static/css/lightbox.css" />
@@ -117,6 +125,7 @@
         <option value="$PROJECT_DIR$/MyProject/templates/data/blogarticle_detail.html" />
         <option value="$PROJECT_DIR$/MyProject/templates/base.html" />
         <option value="$PROJECT_DIR$/bloger/views.py" />
+        <option value="$PROJECT_DIR$/MyProject/settings.py" />
       </list>
     </option>
   </component>
@@ -181,7 +190,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bloger" />
+              <option name="myItemId" value="MyProject" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -595,13 +604,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MyProject/static/css/screen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.2540984" vertical-offset="765" max-vertical-offset="8976">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MyProject/static/js/jquery-1.10.2.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="597">
@@ -702,7 +704,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bloger/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="67" selection-start="82" selection-end="82" vertical-scroll-proportion="0.027914613" vertical-offset="0" max-vertical-offset="646">
+        <state line="18" column="0" selection-start="386" selection-end="386" vertical-scroll-proportion="-12.24" vertical-offset="0" max-vertical-offset="646">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyProject/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="5" selection-start="4449" selection-end="4449" vertical-scroll-proportion="0.6254296" vertical-offset="1727" max-vertical-offset="3230">
           <folding />
         </state>
       </provider>

@@ -75,7 +75,6 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
-CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
 CAPTCHA_FONT_SIZE = 40
 # List of finder classes that know how to find static files in
 # various locations.
@@ -122,8 +121,6 @@ INSTALLED_APPS = (
     'grappelli',
     'django.contrib.admin',
     'django.contrib.markup',
-    'captcha',
-    #
     'pagedown',
     'MyProject',
     'accounts',
