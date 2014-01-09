@@ -10,6 +10,7 @@
     <meta charset="utf-8"/>
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="baidu-site-verification" content="pLxsqv7i3d" />
 
     <title>Obadiah</title>
 
@@ -22,7 +23,6 @@
     <script src="{{ STATIC_URL }}js/scrollToTop.js"></script>
     <script src="{{ STATIC_URL }}js/lightbox-2.6.min.js"></script>
     <script src="{{ STATIC_URL }}js/modernizr.custom.js"></script>
-
 </head>
 
 <body id="top">
@@ -99,7 +99,7 @@
 				<h3>阅读排行</h3>
 				<ul>
                     {% for rank in rank_list %}
-                        <li><a href="{% url 'article-detail' pk=rank.id %}">{{ rank.title }}&nbsp;({{ rank.count }}次阅读)</a></li>
+                        <li><a href="{% url 'article-detail' pk=rank.id %}">{{ rank.title }}</a></li>
                     {% endfor %}
 				</ul>
 

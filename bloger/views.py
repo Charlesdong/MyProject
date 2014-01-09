@@ -27,7 +27,7 @@ class BlogListView(ListView):
     def get_queryset(self):
         classfy_id = self.request.GET.get('classfy_id', None)
 
-        queryset = self.model.objects.all()
+        queryset = self.model.objects.all().order_by('-updatetime')
         if classfy_id:
             queryset = queryset.filter(classify_id=classfy_id)
         return queryset

@@ -67,12 +67,6 @@
                     }
                 }
             });
-            // close on esc
-            $(document).keyup(function(e) {
-                if (e.keyCode == 27) {
-                    self.timepicker.hide();
-                }
-            });
             
             // get/create timepicker's container
             if ($(this.options.timepicker_selector).size() === 0) {
@@ -87,8 +81,8 @@
             this.element.after(this.button);
             
             // disable button if element is disabled
-            if (this.element.prop("disabled")) {
-                this.button.prop("disabled", true);
+            if (this.element.attr("disabled")) {
+                this.button.attr("disabled", true);
             } else {
                 // register event
                 this.button.click(function() {
@@ -152,28 +146,9 @@
         
         // sets offset and shows timepicker container
         _showTimepicker: function() {
-            var browserHeight = document.documentElement.clientHeight;
-            var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
-            var tpInputHeight = this.element.outerHeight();
-            var tpDialogHeight = this.timepicker.outerHeight() + tpInputHeight;
-            var offsetTop = this.element.offset().top;
-            var offsetLeft = this.element.offset().left;
-            
-            // check the remaining space within the viewport
-            // 60 counts for fixed header/footer
-            var checkSpace = offsetTop - scrollY + tpDialogHeight + 60;
-            
-            // position timepicker below or above the input
-            if (checkSpace < browserHeight) {
-                // place the timepicker below input
-                var below = offsetTop + tpInputHeight;
-                this.timepicker.css('left', offsetLeft + 'px').css('top', below + 'px');
-            } else {
-                // place timepicker above input
-                var above = offsetTop - tpDialogHeight + tpInputHeight;
-                this.timepicker.css('left', offsetLeft + 'px').css('top', above + 'px');
-            }
-            // show timepicker
+            this.timepicker_offset = this.element.offset();
+            this.timepicker_offset.top += this.element.outerHeight() + this.options.offset.top;
+            this.timepicker.css(this.timepicker_offset);
             this.timepicker.show();
         },
         

@@ -1,10 +1,4 @@
-Django
-MySQL-python
-requests
-PIL
-BeautifulSoup
-apscheduler
+Django>=1.5
 django-pagedown
 markdown
 grappelli
-django-simple-captcha
